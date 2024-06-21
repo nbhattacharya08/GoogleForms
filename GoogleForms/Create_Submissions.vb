@@ -70,18 +70,24 @@ Public Class Create_Submissions
 
         ' Send the HTTP POST request
         Dim response As String = Await PostRequestAsync("http://localhost:3000/submit", httpContent)
-        TextBox1.Text = ""
-        TextBox2.Text = ""
-        TextBox3.Text = ""
-        TextBox4.Text = ""
-        TextBox5.Text = ""
-        MsgBox("Form Submitted Successfully!")
+        If Not String.IsNullOrEmpty(response) Then
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+            TextBox3.Text = ""
+            TextBox4.Text = ""
+            TextBox5.Text = ""
+            MsgBox("Form Submitted Successfully!")
+        End If
     End Sub
 
     Public Async Function PostRequestAsync(ByVal url As String, ByVal content As HttpContent) As Task(Of String)
         Dim response As HttpResponseMessage = Await _client.PostAsync(url, content)
-        response.EnsureSuccessStatusCode()
-        Return Await response.Content.ReadAsStringAsync()
+        If response.IsSuccessStatusCode() Then
+            Return Await response.Content.ReadAsStringAsync()
+        Else
+            MsgBox(Await response.Content.ReadAsStringAsync())
+            Return String.Empty
+        End If
     End Function
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

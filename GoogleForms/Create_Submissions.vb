@@ -1,5 +1,7 @@
 ﻿Imports System.Net.Http
+Imports System.Text
 Imports System.Threading.Tasks
+
 
 Public Class Create_Submissions
     Dim mm As Integer
@@ -54,8 +56,21 @@ Public Class Create_Submissions
         Me.BringToFront()
         Me.Focus()
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MsgBox("Submit")
+    Private Async Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'MsgBox("Submit")
+        Dim name As String = TextBox1.Text
+        Dim email As String = TextBox2.Text
+        Dim phone As String = TextBox3.Text
+        Dim github_link As String = TextBox4.Text
+        Dim stopwatch_time As String = TextBox5.Text
+
+        ' Convert the dictionary to a JSON string
+        Dim jsonContent As String = $"{{""name"":""{name}"",""email"":""{email}"",""phone"":""{phone}"",""github_link"":""{github_link}"",""stopwatch_time"":""{stopwatch_time}""}}"
+        Dim httpContent As New StringContent(jsonContent, Encoding.UTF8, "application/json")
+
+        ' Send the HTTP POST request
+        Dim response As String = Await PostRequestAsync("http://localhost:3000/submit", httpContent)
+        MsgBox("Form Submitted Successfully!")
     End Sub
 
     Public Async Function PostRequestAsync(ByVal url As String, ByVal content As HttpContent) As Task(Of String)

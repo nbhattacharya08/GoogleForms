@@ -64,7 +64,13 @@ Public Class View_Submissions
         If response.IsSuccessStatusCode Then
             Return responseBody
         Else
-            MsgBox(responseBody)
+            Dim jsonResponse = JsonDocument.Parse(responseBody)
+            Dim root = jsonResponse.RootElement
+            If root.GetProperty("error").GetString() = "Invalid index." Then
+                MsgBox("No Previous or Next")
+            Else
+                MsgBox(root.GetProperty("error").GetString())
+            End If
             Return String.Empty
         End If
     End Function

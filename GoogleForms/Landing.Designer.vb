@@ -32,7 +32,7 @@ Partial Class Landing
         Label1.AutoSize = True
         Label1.BackColor = SystemColors.ControlLight
         Label1.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        Label1.Location = New Point(32, 64)
+        Label1.Location = New Point(12, 68)
         Label1.Name = "Label1"
         Label1.Size = New Size(508, 28)
         Label1.TabIndex = 0
@@ -42,7 +42,7 @@ Partial Class Landing
         ' 
         Button1.BackColor = Color.Yellow
         Button1.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        Button1.Location = New Point(32, 120)
+        Button1.Location = New Point(12, 139)
         Button1.Name = "Button1"
         Button1.Size = New Size(508, 57)
         Button1.TabIndex = 1
@@ -53,7 +53,7 @@ Partial Class Landing
         ' 
         Button2.BackColor = Color.LightSkyBlue
         Button2.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        Button2.Location = New Point(32, 205)
+        Button2.Location = New Point(12, 202)
         Button2.Name = "Button2"
         Button2.Size = New Size(508, 57)
         Button2.TabIndex = 2
@@ -64,7 +64,7 @@ Partial Class Landing
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(586, 563)
+        ClientSize = New Size(541, 498)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(Label1)

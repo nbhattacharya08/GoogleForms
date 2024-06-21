@@ -35,6 +35,7 @@ Partial Class View_Submissions
         TextBox5 = New TextBox()
         Button1 = New Button()
         Button2 = New Button()
+        Button3 = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -42,7 +43,7 @@ Partial Class View_Submissions
         Label1.AutoSize = True
         Label1.BackColor = SystemColors.ControlLight
         Label1.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        Label1.Location = New Point(29, 31)
+        Label1.Location = New Point(29, 42)
         Label1.Name = "Label1"
         Label1.Size = New Size(490, 28)
         Label1.TabIndex = 0
@@ -51,7 +52,7 @@ Partial Class View_Submissions
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(30, 91)
+        Label2.Location = New Point(29, 94)
         Label2.Name = "Label2"
         Label2.Size = New Size(39, 15)
         Label2.TabIndex = 1
@@ -60,7 +61,7 @@ Partial Class View_Submissions
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(30, 133)
+        Label3.Location = New Point(29, 144)
         Label3.Name = "Label3"
         Label3.Size = New Size(41, 15)
         Label3.TabIndex = 2
@@ -69,7 +70,7 @@ Partial Class View_Submissions
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(30, 169)
+        Label4.Location = New Point(29, 186)
         Label4.Name = "Label4"
         Label4.Size = New Size(51, 30)
         Label4.TabIndex = 3
@@ -78,7 +79,7 @@ Partial Class View_Submissions
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(30, 221)
+        Label5.Location = New Point(29, 233)
         Label5.Name = "Label5"
         Label5.Size = New Size(47, 45)
         Label5.TabIndex = 4
@@ -87,7 +88,7 @@ Partial Class View_Submissions
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(29, 288)
+        Label6.Location = New Point(29, 307)
         Label6.Name = "Label6"
         Label6.Size = New Size(63, 30)
         Label6.TabIndex = 5
@@ -95,7 +96,7 @@ Partial Class View_Submissions
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(126, 88)
+        TextBox1.Location = New Point(126, 91)
         TextBox1.Name = "TextBox1"
         TextBox1.ReadOnly = True
         TextBox1.Size = New Size(374, 23)
@@ -103,7 +104,7 @@ Partial Class View_Submissions
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(126, 133)
+        TextBox2.Location = New Point(126, 141)
         TextBox2.Name = "TextBox2"
         TextBox2.ReadOnly = True
         TextBox2.Size = New Size(374, 23)
@@ -111,7 +112,7 @@ Partial Class View_Submissions
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(126, 176)
+        TextBox3.Location = New Point(126, 193)
         TextBox3.Name = "TextBox3"
         TextBox3.ReadOnly = True
         TextBox3.Size = New Size(374, 23)
@@ -119,7 +120,7 @@ Partial Class View_Submissions
         ' 
         ' TextBox4
         ' 
-        TextBox4.Location = New Point(126, 230)
+        TextBox4.Location = New Point(126, 246)
         TextBox4.Name = "TextBox4"
         TextBox4.ReadOnly = True
         TextBox4.Size = New Size(374, 23)
@@ -127,7 +128,7 @@ Partial Class View_Submissions
         ' 
         ' TextBox5
         ' 
-        TextBox5.Location = New Point(126, 288)
+        TextBox5.Location = New Point(126, 314)
         TextBox5.Name = "TextBox5"
         TextBox5.ReadOnly = True
         TextBox5.Size = New Size(374, 23)
@@ -137,7 +138,7 @@ Partial Class View_Submissions
         ' 
         Button1.BackColor = Color.Yellow
         Button1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Button1.Location = New Point(29, 357)
+        Button1.Location = New Point(30, 381)
         Button1.Name = "Button1"
         Button1.Size = New Size(202, 40)
         Button1.TabIndex = 11
@@ -148,18 +149,30 @@ Partial Class View_Submissions
         ' 
         Button2.BackColor = Color.LightSkyBlue
         Button2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Button2.Location = New Point(298, 357)
+        Button2.Location = New Point(298, 381)
         Button2.Name = "Button2"
         Button2.Size = New Size(202, 40)
         Button2.TabIndex = 12
         Button2.Text = "Next ( Ctrl + N )"
         Button2.UseVisualStyleBackColor = False
         ' 
+        ' Button3
+        ' 
+        Button3.Font = New Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point)
+        Button3.Location = New Point(9, 9)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(60, 19)
+        Button3.TabIndex = 13
+        Button3.Text = "<- Back"
+        Button3.TextAlign = ContentAlignment.TopLeft
+        Button3.UseVisualStyleBackColor = True
+        ' 
         ' View_Submissions
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(541, 498)
+        ClientSize = New Size(563, 517)
+        Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(TextBox5)
@@ -193,4 +206,5 @@ Partial Class View_Submissions
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

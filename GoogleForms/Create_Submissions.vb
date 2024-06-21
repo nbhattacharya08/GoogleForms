@@ -70,6 +70,11 @@ Public Class Create_Submissions
 
         ' Send the HTTP POST request
         Dim response As String = Await PostRequestAsync("http://localhost:3000/submit", httpContent)
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
         MsgBox("Form Submitted Successfully!")
     End Sub
 
@@ -79,4 +84,11 @@ Public Class Create_Submissions
         Return Await response.Content.ReadAsStringAsync()
     End Function
 
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ' Directly cast the ParentForm property to the type of the parent form
+        Dim parentForm As Form1 = DirectCast(Me.ParentForm, Form1)
+
+        ' Call the parent form's function
+        parentForm.switchPanel(Landing)
+    End Sub
 End Class

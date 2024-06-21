@@ -22,17 +22,19 @@ Public Class View_Submissions
     End Sub
 
     Private Async Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim response As String = Await GetExampleAsync($"http://localhost:3000/read?index={count - 1}")
-        count = count - 1
-        ShowResponse(response)
-        MsgBox(count)
+        Dim response As String = Await GetRequestAsync($"http://localhost:3000/read?index={count - 1}")
+        If Not String.IsNullOrEmpty(response) Then
+            count = count - 1
+            ShowResponse(response)
+        End If
     End Sub
 
     Private Async Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim response As String = Await GetExampleAsync($"http://localhost:3000/read?index={count + 1}")
-        count = count + 1
-        ShowResponse(response)
-        MsgBox(count)
+        Dim response As String = Await GetRequestAsync($"http://localhost:3000/read?index={count + 1}")
+        If Not String.IsNullOrEmpty(response) Then
+            count = count + 1
+            ShowResponse(response)
+        End If
     End Sub
 
     Private Sub ShortcutForm_KeyDown(sender As Object, e As KeyEventArgs)
@@ -55,15 +57,21 @@ Public Class View_Submissions
         Me.Focus()
     End Sub
 
-    Public Async Function GetExampleAsync(ByVal url As String) As Task(Of String)
+    Public Async Function GetRequestAsync(ByVal url As String) As Task(Of String)
         Dim response As HttpResponseMessage = Await _client.GetAsync(url)
-        response.EnsureSuccessStatusCode()
-        Return Await response.Content.ReadAsStringAsync()
+        Dim responseBody As String = Await response.Content.ReadAsStringAsync()
+
+        If response.IsSuccessStatusCode Then
+            Return responseBody
+        Else
+            MsgBox(responseBody)
+            Return String.Empty
+        End If
     End Function
 
     Private Async Sub View_Submissions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         count = 0
-        Dim response As String = Await GetExampleAsync($"http://localhost:3000/read?index={count}")
+        Dim response As String = Await GetRequestAsync($"http://localhost:3000/read?index={count}")
         ShowResponse(response)
     End Sub
 
@@ -79,5 +87,13 @@ Public Class View_Submissions
         TextBox3.Text = root.GetProperty("phone").GetString()
         TextBox4.Text = root.GetProperty("github_link").GetString()
         TextBox5.Text = root.GetProperty("stopwatch_time").GetString()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ' Directly cast the ParentForm property to the type of the parent form
+        Dim parentForm As Form1 = DirectCast(Me.ParentForm, Form1)
+
+        ' Call the parent form's function
+        parentForm.switchPanel(Landing)
     End Sub
 End Class

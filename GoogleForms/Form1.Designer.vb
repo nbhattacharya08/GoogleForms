@@ -27,9 +27,9 @@ Partial Class Form1
         ' 
         ' Panel1
         ' 
-        Panel1.Location = New Point(12, 12)
+        Panel1.Location = New Point(187, 61)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(943, 672)
+        Panel1.Size = New Size(541, 498)
         Panel1.TabIndex = 0
         ' 
         ' Form1
